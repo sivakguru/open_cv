@@ -1,0 +1,26 @@
+= SecQR
+:toc: macro
+:toc-title:
+
+The Security Solution for QR codes.
+
+== Description
+
+SecQR is a security solution for QR codes. It uses Google's generativeai library, OpenCV, and other technologies to provide a secure and efficient way to handle QR codes.
+
+== Installation
+
+To install the project, you need to have Python 3.10 installed. Then, you can use Poetry to manage the dependencies:
+
+```sh
+pip install poetry
+poetry install --no-dev --no-root --locked
+```
+
+== Usage
+
+To use SecQR, run the SecQR_V_1_0_2.py script. This will start the QR code detection and decoding process.
+
+== Contributing
+
+Contributions are welcome. Please make sure to update tests as appropriate.
