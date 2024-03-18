@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "secqr"
+version = "0.1.0"
+description = "The Security Solution for QR codes"
+authors = ["Sivakumar Kumaraguru <sivakumar_kumaraguru@comcast.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+opencv-python = "^4.9.0.80"
+omegaconf = "^2.3.0"
+google-generativeai = "^0.4.1"
+opencv-contrib-python = "^4.9.0.80"
+segno = "^1.6.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
