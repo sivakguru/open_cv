@@ -78,7 +78,7 @@ Then you can test the project using the QR codes from 'QR_codes' folder.
 
 Example QR codes:
 image:QR_codes/sql_inject.png[SQL Injection, 150, 150, align="center"]
-image:QR_codes/xss.png[Cross-Site Scripting (XSS), 150, 150, align="center"]
+image:QR_codes/XSS.png[Cross-Site Scripting (XSS), 150, 150, align="center"]
 
 == Usage
 
