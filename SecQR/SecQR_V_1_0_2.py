@@ -90,10 +90,11 @@ def vulnerability_scan(s):
 
 while True:
     ret, frame = cap.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     if ret:
-        ret_qr, decoded_info, points, _ = qcd.detectAndDecodeMulti(frame)
+        ret_qr, decoded_info, points, _ = qcd.detectAndDecodeMulti(gray)
         if ret_qr:
-            cv2.imwrite('qr_code.png', frame)
+            # cv2.imwrite('qr_code.png', gray)
             for s, p in zip(decoded_info, points):
                 if s and debug == 0:
                     color = (0, 255, 0)
