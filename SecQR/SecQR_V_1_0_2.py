@@ -4,8 +4,9 @@ import google.generativeai as palm
 import requests
 import json
 import re
-
-import segno
+from pyzbar.pyzbar import decode
+from PIL import Image
+from datetime import datetime
 
 # Configuration
 debug = 0
@@ -88,16 +89,28 @@ def vulnerability_scan(s):
     print(f'Scanned Data : {s}')
     print(completion.result)
 
+def get_qr_properties(image):
+    # Decode the QR code from the image
+    decoded_objects = decode(image)
+    for obj in decoded_objects:
+        if obj.type == 'QRCODE':
+            # The version of a QR code is related to its size
+            # A version 1 QR code is 21x21 modules, and each additional version adds 4 modules
+            # So we can calculate the version based on the size
+            version = (obj.rect.width // 4) - 4
+            print('QR code version:', version)
+            print('QR code size:', obj.rect.width, 'x', obj.rect.height)
+
 while True:
     ret, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     if ret:
         ret_qr, decoded_info, points, _ = qcd.detectAndDecodeMulti(gray)
         if ret_qr:
-            # cv2.imwrite('qr_code.png', gray)
             for s, p in zip(decoded_info, points):
                 if s and debug == 0:
                     color = (0, 255, 0)
+                    get_qr_properties(gray)
                     if re.match(r'^PIN', s):
                         mfa(s)
                     elif re.match(url_pattern, s):
