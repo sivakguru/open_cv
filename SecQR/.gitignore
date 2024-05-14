@@ -5,3 +5,4 @@ secrets.yaml
 *.txt
 .vscode
 totp.png
+__pycache__
