@@ -7,6 +7,7 @@ import re
 from pyzbar.pyzbar import decode
 from PIL import Image
 from datetime import datetime
+import mfa_totp
 
 # Configuration
 debug = 0
@@ -28,12 +29,12 @@ cap = cv2.VideoCapture(camera_id)
 
 def mfa(s):
     # MFA
-    pin = input("Enter your PIN: ")
-    if pin != "1234":  # Replace with actual PIN verification
-        print("Invalid PIN")
-    else:
-        print("PIN verified")
+    otp = input("Enter your OTP: ")
+    if mfa_totp.mfa_verify(otp):  # Replace with actual PIN verification
+        print("OTP Verified")
         print(f'Decrypted Message: {s}')
+    else:
+        print("INVALID OTP")
 
 def url_safety(s):
     # URL Safety Validation

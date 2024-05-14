@@ -4,3 +4,4 @@ secrets.yaml
 *.log
 *.txt
 .vscode
+totp.png
